@@ -1,0 +1,106 @@
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Calander {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+	/*	System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\Mohammad\\Downloads\\chromedriver_win32\\chromedriver.exe");
+
+		// TODO Auto-generated method stub
+		WebDriver driver = new ChromeDriver();
+Thread.sleep(5000);
+		driver.get("https://www.path2usa.com/travel-companions");
+		
+		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.findElement(By.id("travel_date")).click();
+	
+	List<WebElement>data=driver.findElements(By.className("day"));
+	WebDriverWait W = new WebDriverWait(driver, 5);
+	int count = driver.findElements(By.className("day")).size();
+	
+	for (int i=0;i<count; i++) {
+		
+		String text = driver.findElements(By.className("day")).get(i).getText();
+		
+		
+		if (text.equalsIgnoreCase("22")) {
+			
+			driver.findElements(By.xpath("//td[@class='day']")).get(i).click();
+			break;
+		}
+		
+		
+	}
+		*/
+		
+		
+	
+
+		// TODO Auto-generated method stub
+			System.setProperty("webdriver.chrome.driver",
+					"C:\\Users\\Mohammad\\Downloads\\chromedriver_win32\\chromedriver.exe");
+
+			// TODO Auto-generated method stub
+			WebDriver driver = new ChromeDriver();
+
+		driver.get("https://www.path2usa.com/travel-companions");
+
+		System.out.println(driver.getTitle());
+
+		Thread.sleep(4000);
+
+		driver.findElement(By.xpath("//input[@id='travel_date']")).click();
+
+		WebElement month = driver.findElement(By.xpath("//div[@class='datepicker-days']//th[@class='datepicker-switch']"));
+
+		while(!month.getText().contains("December 2020"))
+
+		{
+
+		     driver.findElement(By.cssSelector("[class='datepicker-days'] th[class='next']")).click();
+
+		     System.out.println(month.getText());
+
+		}
+
+		int count= driver.findElements(By.cssSelector("td[class*='day']")).size();
+
+		for(int i=0;i<count;i++)
+
+		{
+
+		     String text=driver.findElements(By.xpath("//td[@class='day']")).get(i).getText();
+
+		     if(text.equalsIgnoreCase("26"))
+
+		     {
+
+		   // driver.findElements(By.cssSelector("td[class*='day']")).get(i).click();
+
+		driver.findElements(By.xpath("//td[@class='day']")).get(i).click();
+
+		    System.out.println(text);
+
+		    break;
+
+		     }
+
+		}
+
+		}
+
+		
+		
+		
+	}
+
+

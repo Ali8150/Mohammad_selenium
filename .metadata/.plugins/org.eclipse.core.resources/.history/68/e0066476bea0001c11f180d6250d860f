@@ -1,0 +1,47 @@
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class scope {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\Mohammad\\Downloads\\chromedriver_win32\\chromedriver.exe");
+
+		// TODO Auto-generated method stub
+		WebDriver driver = new ChromeDriver();
+
+		driver.get("https://www.rahulshettyacademy.com/AutomationPractice/");
+                  System.out.println(driver.findElements(By.tagName("a")).size());
+                  
+   WebElement  footer = driver.findElement(By.id("gf-BIG"));           
+		
+   System.out.println(footer.findElements(By.tagName("a")).size());
+   WebElement footcolum1 =  footer.findElement(By.xpath("//tbody/tr/td[1]/ul"));
+   System.out.println(footcolum1.findElements(By.tagName("a")).size());
+   System.out.println(footcolum1.findElements(By.tagName("a")).size());
+   int length = footcolum1.findElements(By.tagName("a")).size();
+   System.out.println(length);
+   for (int i=1; i <= length; i++ ) {
+	   
+	   String clickLinkTab = Keys.chord(Keys.CONTROL,Keys.ENTER);
+	   
+	   footcolum1.findElements(By.tagName("a")).get(i).sendKeys(clickLinkTab);
+	   
+	   
+   }
+   
+	
+		
+		
+	}
+
+}
